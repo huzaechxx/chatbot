@@ -7,9 +7,20 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 require("dotenv").config();
 const { GoogleGenerativeAI } = require("@google/generative-ai");
+const path = require("path");
 
 const app = express();
 const PORT = 3000;
+
+// Serve static files from the React app
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "client/build")));
+
+  // For all GET requests, send back the index.html file in the build folder
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client/build", "index.html"));
+  });
+}
 
 // Initialize GoogleGenerativeAI with API key
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
@@ -25,7 +36,7 @@ app.use(express.json());
 app.use("/api/users", userRoutes);
 
 mongoose
-  .connect("mongodb://localhost:27017/chatbot", {})
+  .connect(process.env.MONGO_URL, {})
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.error("Could not connect to MongoDB:", err));
 
@@ -50,6 +61,10 @@ app.post("/chat", async (req, res) => {
   } catch (error) {
     console.error("Error generating content:", error.message);
   }
+});
+
+app.get("/", async (req, res) => {
+  res.json("API RESPONSE");
 });
 
 // Start the server
