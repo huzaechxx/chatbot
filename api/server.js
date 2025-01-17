@@ -28,7 +28,11 @@ const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
 // Middleware
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors(
+  origin:["https://chatbot-79k8.vercel.app"],
+  methods:["POST","GET"],
+  credentials:true
+));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
