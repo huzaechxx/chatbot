@@ -27,7 +27,7 @@ const LoginPage = () => {
 
     try {
       const response = await fetch(
-        `https://chat-bot-backend-n4g50zvur-huzaifa-zahids-projects.vercel.app/api/users/login`,
+        `https://chat-bot-backend-mu.vercel.app/api/users/login`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

@@ -21,7 +21,7 @@ const SignupPage = () => {
     e.preventDefault();
     try {
       const response = await fetch(
-        `https://chat-bot-backend-n4g50zvur-huzaifa-zahids-projects.vercel.app/api/users/register`,
+        `https://chat-bot-backend-mu.vercel.app/api/users/register`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

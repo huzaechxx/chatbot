@@ -62,7 +62,7 @@ const ChatApp = () => {
       try {
         // Call the API to get a response based on the user's input
         const res = await fetch(
-          `https://chat-bot-backend-n4g50zvur-huzaifa-zahids-projects.vercel.app/api/chat`,
+          `https://chat-bot-backend-mu.vercel.app/api/chat`,
           {
             method: "POST",
             headers: {
