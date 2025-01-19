@@ -10,11 +10,29 @@ const { GoogleGenerativeAI } = require("@google/generative-ai");
 const path = require("path");
 
 const app = express();
-const PORT = process.env.PORT || 3000; // Use dynamic port for deployment
+const PORT = process.env.PORT || 3000;
+
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://chatbot-5jnhangz7-huzaifa-zahids-projects.vercel.app",
+];
+
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      } else {
+        return callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+  })
+);
 
 // Middleware
 app.use(bodyParser.json());
-app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
