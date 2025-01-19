@@ -63,7 +63,7 @@ app.post("/chat", async (req, res) => {
   }
 });
 
-app.get("/", async (req, res) => {
+app.get("api/", async (req, res) => {
   res.json("API RESPONSE");
 });
 
