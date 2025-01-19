@@ -43,7 +43,7 @@ mongoose
 // Initial route - render the form without any response
 
 // Handle form submission
-app.post("/chat", async (req, res) => {
+app.post("api/chat", async (req, res) => {
   const prompt = req.body.prompt;
 
   if (!prompt) {
@@ -63,7 +63,7 @@ app.post("/chat", async (req, res) => {
   }
 });
 
-app.get("api/", async (req, res) => {
+app.get("/", async (req, res) => {
   res.json("API RESPONSE");
 });
 
