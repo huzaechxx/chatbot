@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 3000;
 
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://chatbot-5jnhangz7-huzaifa-zahids-projects.vercel.app",
+  "https://default-chatbot.vercel.app/",
 ];
 
 app.use(
