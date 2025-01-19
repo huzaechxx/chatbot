@@ -26,11 +26,14 @@ const LoginPage = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch(`http://localhost:3000/api/users/login`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData), // Ensure formData includes email and password
-      });
+      const response = await fetch(
+        `https://chat-bot-backend-n4g50zvur-huzaifa-zahids-projects.vercel.app/api/users/login`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData), // Ensure formData includes email and password
+        }
+      );
 
       const data = await response.json();
 
