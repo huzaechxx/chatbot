@@ -61,7 +61,7 @@ const ChatApp = () => {
 
       try {
         // Call the API to get a response based on the user's input
-        const res = await fetch("https://chatbot-sand-six.vercel.app/chat", {
+        const res = await fetch(`http://localhost:3000/chat`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
